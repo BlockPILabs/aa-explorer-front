@@ -1,0 +1,49 @@
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #303030
+    )
+  )
+);
+
+:root {
+  --menuBg: #ffffff;
+  --menuText: #303030;
+  --menuActiveText: #303030;
+  --menuHover: #c5e86c;
+  --subMenuBg: #ffffff;
+  --subMenuActiveText: #303030;
+  --subMenuHover: #c5e86c;
+
+  // el-menu-iem
+  --el-menu-item-height: 32px;
+  --el-menu-base-level-padding: 8px;
+  --el-menu-level-padding: 24px;
+  --el-menu-sub-item-height: calc(var(--el-menu-item-height));
+}
+
+$menuBg: var(--menuBg);
+$menuText: var(--menuText);
+$menuActiveText: var(--menuActiveText);
+$menuHover: var(--menuHover);
+
+$subMenuBg: var(--subMenuBg);
+$subMenuActiveText: var(--subMenuActiveText);
+$subMenuHover: var(--subMenuHover);
+
+$sideBarWidth: 240px;
+
+.el-table {
+  --el-table-header-bg-color: #f7f7f7;
+  --el-table-header-text-color: #93959c;
+  --el-table-text-color: #303030;
+}
+
+.el-dialog {
+  --el-dialog-border-radius: 12px;
+  --el-dialog-padding-primary: 16px;
+}
+
+.el-popper {
+  --el-popover-padding: 16px;
+}

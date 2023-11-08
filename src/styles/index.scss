@@ -1,0 +1,43 @@
+@import './sidebar';
+@import './reset';
+@import './element-plus';
+@import './scrollbar';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32 160 255);
+  }
+}
+
+// custom el-table style
+.titan-table .el-table .cell {
+  line-height: normal;
+}
+.titan-table .el-table thead th {
+  font-weight: 700;
+  padding: 13px 0px;
+  &.is-leaf {
+    border-top: var(--el-table-border);
+  }
+}
+.titan-table .el-table tbody td {
+  border-top: var(--el-table-border);
+  padding: 12px 0px;
+}
+.titan-table .el-table .caret-wrapper {
+  width: 16px;
+}
