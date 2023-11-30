@@ -137,7 +137,7 @@
                 border-radius: 10px;
                 width: 10px;
                 height: 10px;
-                background-color: #89e493;
+                background-color: #6ac8fd;
               "
             ></span
             ><span
@@ -229,7 +229,7 @@
                 border-radius: 10px;
                 width: 10px;
                 height: 10px;
-                background-color: #6ac8fd;
+                background-color: #89e493;
               "
             ></span
             ><span
@@ -276,7 +276,7 @@
   </div>`
         }
       },
-      color: ['#1379FF', '#E6D64D', '#89E493', '#FF82F2', '#6AC8FD'],
+      color: ['#1379FF', '#E6D64D', '#6AC8FD', '#FF82F2', '#89E493'],
       grid: {
         containLabel: true,
         left: isMobile.value ? 40 : 100,
@@ -348,7 +348,6 @@
       series: [
         {
           type: 'bar',
-          barWidth: '10px',
           yAxisIndex: 0,
           name: 'UserOps',
           encode: {
@@ -358,7 +357,7 @@
         },
         {
           type: 'bar',
-          barWidth: '10px',
+          barMaxWidth: '10px',
           yAxisIndex: 0,
           name: 'Active AA Wallet',
           encode: {
