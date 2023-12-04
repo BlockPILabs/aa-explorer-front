@@ -131,6 +131,14 @@
       dom.addEventListener('scroll', handleScroll)
     })
   })
+  onDeactivated(() => {        
+    try {
+      const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
+      dom.removeEventListener('scroll', handleScroll)
+    } catch (error) {
+      
+    }
+  })
 </script>
 
 <template>

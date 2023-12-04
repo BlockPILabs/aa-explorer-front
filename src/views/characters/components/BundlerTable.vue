@@ -144,6 +144,7 @@
     getList()
   }
   function handleScroll(e) {
+    
     const { clientHeight, scrollTop, scrollHeight } = e.target
     if (clientHeight + scrollTop === scrollHeight) {
       load()
@@ -162,6 +163,10 @@
       const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
       dom.addEventListener('scroll', handleScroll)
     })
+  })
+  onBeforeUnmount(() => {    
+    const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
+    dom.removeEventListener('scroll', handleScroll)
   })
 </script>
 

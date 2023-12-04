@@ -255,6 +255,10 @@
       dom.addEventListener('scroll', handleScroll)
     })
   })
+  onBeforeUnmount(() => {    
+    const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
+    dom.removeEventListener('scroll', handleScroll)
+  })
 </script>
 
 <template>
