@@ -31,7 +31,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }
     },
     css: {
-      // CSS 预处理器
       preprocessorOptions: {
         //define global scss variable
         scss: {
@@ -45,9 +44,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     // server: {
     //   host: '0.0.0.0',
     //   port: Number(env.VITE_APP_PORT),
-    //   open: false, // 运行是否自动打开浏览器
+    //   open: false, 
     //   proxy: {
-    //     // 反向代理解决跨域
+    //     
     //     [env.VITE_APP_BASE_API]: {
     //       target: env.VITE_APP_TARGET_URL,
     //       changeOrigin: true,
@@ -55,7 +54,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     //         path.replace(
     //           new RegExp('^' + env.VITE_APP_BASE_API),
     //           env.VITE_APP_TARGET_BASE_API
-    //         ) // 替换 /dev-api 为 target 接口地址
+    //         ) // repalce /dev-api for target host
     //     }
     //   }
     // },
