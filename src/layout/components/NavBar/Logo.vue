@@ -11,10 +11,10 @@
     >
       <svg-icon iconClass="logo" class="web-logo"></svg-icon>
       <div class="ml-8px">
-        <span class="text-20px fw-700 lh-none">AA Explorer</span>
+        <span class="text-20px fw-700 lh-20px">AA Explorer</span>
         <br />
-        <span class="text-14px c-#60626a">
-          <svg-icon iconClass="flash" class="mr-4px"></svg-icon>
+        <span class="text-12px c-#60626a mt-4px">
+          <svg-icon iconClass="flash" class="w-8px! h-13px! mr-4px"></svg-icon>
           <span>Powered by</span>
           <span class="fw-700"> BlockPI</span>
         </span>
@@ -25,7 +25,7 @@
 
 <style scoped lang="scss">
   .web-logo {
-    width: 48px;
-    height: 48px;
+    width: 34px;
+    height: 34px;
   }
 </style>
