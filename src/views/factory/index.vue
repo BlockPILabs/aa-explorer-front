@@ -101,7 +101,13 @@
       <FeatureList v-loading="detailLoading">
         <div>
           <div class="label">
-            <span>24H Accounts Deployed</span>
+            <span
+              >24H
+              {{
+                factoryDetail.accountDeployNumD1 > 1 ? 'Accounts' : 'Account'
+              }}
+              Deployed</span
+            >
           </div>
           <div class="value">
             <number-show
@@ -111,7 +117,13 @@
         </div>
         <div>
           <div class="label">
-            <span>Total Accounts Deployed</span>
+            <span
+              >Total
+              {{
+                factoryDetail.accountDeployNum > 1 ? 'Accounts' : 'Account'
+              }}
+              Deployed</span
+            >
           </div>
           <div class="value">
             <number-show :number="factoryDetail.accountDeployNum"></number-show>
@@ -119,7 +131,10 @@
         </div>
         <div>
           <div class="label">
-            <span>Total UserOps</span>
+            <span
+              >Total
+              {{ factoryDetail.userOpsNum > 1 ? 'UserOps' : 'UserOp' }}</span
+            >
           </div>
           <div class="value">
             <number-show :number="factoryDetail.userOpsNum"></number-show>

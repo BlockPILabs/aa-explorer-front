@@ -20,6 +20,7 @@ export const SORT_FIELD_MAP = {
   },
   factoryList: {
     accountNum: 1,
-    accountNumD1: 2
+    accountNumD1: 2,
+    dominance: 3
   }
 }
