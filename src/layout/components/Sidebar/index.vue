@@ -69,6 +69,21 @@
       <LeftMenu :menu-list="permissionStore.routes" base-path="" />
 
       <div class="contact-us mt-auto pt-24px">
+        <div
+          v-if="opened"
+          class="grant-info flex items-center justify-between mb-24px"
+        >
+          <div>
+            <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+          </div>
+          <div class="flex items-center gap-4px">
+            <span class="c-#60626A text-12px">Grant from</span>
+            <svg-icon icon-class="esp-logo" class="w-66px! h-29px!"></svg-icon>
+          </div>
+          <div class="revert-wheat">
+            <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+          </div>
+        </div>
         <a
           class="bug-report block text-center px-8px py-7px c-#93959c group bg-#F8F8F8 hover:c-#60626a rd-8px"
           target="_blank"
@@ -143,5 +158,9 @@
       min-height: 100%;
       flex-direction: column;
     }
+  }
+  .revert-wheat {
+    transform-origin: center center;
+    transform: rotateY(180deg);
   }
 </style>
