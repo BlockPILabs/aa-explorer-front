@@ -75,5 +75,16 @@ export const URL = {
     useropsInTx: (net) => {
       return `/network/${net}/useropsAnalysisList`
     }
+  },
+  whale: {
+    overview: (net) => {
+      return `/network/${net}/whaleOverview`
+    },
+    rank: (net) => {
+      return `/network/${net}/topWhale`
+    },
+    chart: (net) => {
+      return `/network/${net}/whaleChart`
+    }
   }
 }

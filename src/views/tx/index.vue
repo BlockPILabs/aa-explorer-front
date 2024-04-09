@@ -255,7 +255,7 @@
       dom.addEventListener('scroll', handleScroll)
     })
   })
-  onBeforeUnmount(() => {    
+  onBeforeUnmount(() => {
     const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
     dom.removeEventListener('scroll', handleScroll)
   })
@@ -304,9 +304,9 @@
       >
         <template #append>
           <p v-if="noMore" class="text-center pt-32px">No more</p>
+          <p v-if="loading" class="text-center pt-4px">Loading...</p>
         </template>
       </titan-table>
-      <p v-if="loading" class="text-center pt-4px">Loading...</p>
     </my-card>
     <my-card headBorder class="mt-24px">
       <template #title>

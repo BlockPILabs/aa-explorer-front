@@ -1,5 +1,5 @@
 <template>
-  <span class="number-show"> {{ formatNumber }}{{ suffix }} </span>
+  <span class="number-show">{{ prefix }}{{ formatNumber }}{{ suffix }} </span>
 </template>
 
 <script lang="ts" setup>
@@ -15,6 +15,10 @@
       default: '0,0'
     },
     suffix: {
+      type: String,
+      default: ''
+    },
+    prefix: {
       type: String,
       default: ''
     },

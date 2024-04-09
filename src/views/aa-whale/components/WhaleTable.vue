@@ -1,19 +1,14 @@
 <script setup lang="tsx">
   import CopyMe from '@/components/CopyMe/index.vue'
-  import { getFactoryList } from '@/api/modules/stat'
-  import { SORT_FIELD_MAP, TABLE_SORT_MAP } from '@/enums/SortMap'
+  import { getRank } from '@/api/modules/whale'
+  import { storeToRefs } from 'pinia'
+  import { useChainStore } from '@/store/modules/chain'
   import { useTitanTableScrollHeight } from '@/hooks/useTitanTableScrollHeight'
+  const chainStore = useChainStore()
+  const { choosingChain } = storeToRefs(chainStore)
 
-  const props = defineProps({
-    network: {
-      type: String,
-      default: ''
-    }
-  })
-  const sortField = ref('')
-  const sortOrder = ref('')
   const page = ref(1)
-  const perPage = ref(15)
+  const perPage = ref(20)
   const loading = ref(false)
   const list = ref<any>([])
   const total = ref(0)
@@ -24,58 +19,69 @@
 
   const tableCol = ref<any>([
     {
+      type: 'index',
+      label: '#',
+      width: 80,
+      render: ({ index }) => {
+        if (index <= 2) {
+          return (
+            <svg-icon
+              iconClass={`whale-rank_${index + 1}`}
+              class='w-20px! h-20px!'
+            ></svg-icon>
+          )
+        } else {
+          return (
+            <span class='inline-block min-w-20px h-20px text-center'>
+              {index + 1}
+            </span>
+          )
+        }
+      }
+    },
+    {
       label: 'Address',
-      prop: 'factory',
-      minWidth: 120,
+      minWidth: 150,
       render: ({ row }) => {
-        const dom = row.factoryLabel ? (
-          <div class='inline-flex mt-4px px-4px py-2px rd-4px bg-#D8DFFF c-#60626A'>
-            <span>{row.factoryLabel}</span>
-          </div>
-        ) : (
-          ''
-        )
         return (
           <div>
+            <svg-icon
+              iconClass={`chain-${choosingChain.value}`}
+              class='w-16px! h-16px! mr-4px'
+            ></svg-icon>
             <CopyMe
-              hash={row.factory}
+              hash={row.address}
               class='c-#30754B'
               routeInfo={{
-                name: 'FactoryInfo',
-                params: { factory: row.factory }
+                name: 'AccountInfo',
+                params: { account: row.address }
               }}
             />
-            {dom}
           </div>
         )
       }
     },
     {
-      label: 'Active Accounts',
-      prop: 'accountNumD1',
-      sortable: 'custom',
-      minWidth: 130,
+      label: 'Wallet Balance',
+      minWidth: 120,
       render: ({ row }) => {
         return (
           <div>
-            <number-show number={row.accountNumD1} />
-            <number-show
-              number={row.dominanceD1}
-              format='0.[00]%'
-              class='ml-8px c-#93959C'
-            />
+            <number-show number={row.balance} format='$0,0.[000000]' />
           </div>
         )
       }
     },
     {
-      label: 'Total Accounts',
-      prop: 'accountNum',
+      label: 'Percentage',
       align: 'right',
-      sortable: 'custom',
-      minWidth: 120,
+      minWidth: 100,
       render: ({ row }) => {
-        return <number-show number={row.accountNum} />
+        return (
+          <div>
+            <number-show number={row.percentage} format='0.[00]%' />
+          </div>
+        )
       }
     }
   ])
@@ -87,23 +93,15 @@
   async function getList() {
     try {
       loading.value = true
-      const res = await getFactoryList(props.network, {
+      const res = await getRank(choosingChain.value, {
         perPage: perPage.value,
-        page: page.value,
-        sort: SORT_FIELD_MAP.factoryList[sortField.value] || '',
-        order: TABLE_SORT_MAP[sortOrder.value] || ''
+        page: page.value
       })
       total.value = res?.totalCount
       if (page.value === 1) {
-        list.value = (res?.records || []).map((item) => {
-          item.visible = false
-          return item
-        })
+        list.value = res?.TopWhaleRankList || []
       } else {
-        const newList = (res?.records || []).map((item) => {
-          item.visible = false
-          return item
-        })
+        const newList = res?.TopWhaleRankList || []
         list.value = list.value.concat(...newList)
       }
     } catch (error) {
@@ -115,13 +113,6 @@
       loading.value = false
     }
   }
-  function handleSortChange(params) {
-    sortField.value = params.prop
-    sortOrder.value = params.order
-    page.value = 1
-    getList()
-  }
-
   const { table, tableHeight } = useTitanTableScrollHeight()
 
   onMounted(() => {
@@ -131,7 +122,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="bg-#fff rd-12px p-16px">
     <titan-table
       ref="table"
       :data="list"
@@ -142,7 +133,6 @@
       :max-height="tableHeight"
       v-el-table-infinite-scroll="load"
       :infinite-scroll-disabled="disabled"
-      @sort-change="handleSortChange"
     >
       <template #append>
         <p v-if="noMore" class="text-center pt-32px">No more</p>
@@ -157,9 +147,30 @@
     :deep() {
       .el-table tbody td {
         padding: 0px;
-        height: 69px;
+        height: 42px;
+      }
+      th.el-table__cell {
+        border: none;
+        background: none;
+      }
+      .el-table__body {
+        border-spacing: 0px 10px;
+        tr {
+          background: none;
+        }
+        td.el-table__cell {
+          background: #f4f6ef;
+          border: none;
+          &:first-of-type {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+          &:last-of-type {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
       }
     }
   }
 </style>
-@/enums/SortMap

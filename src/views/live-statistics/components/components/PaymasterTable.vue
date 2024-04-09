@@ -123,13 +123,11 @@
       dom.addEventListener('scroll', handleScroll)
     })
   })
-  onDeactivated(() => {        
+  onDeactivated(() => {
     try {
       const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
       dom.removeEventListener('scroll', handleScroll)
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   })
 </script>
 
@@ -145,9 +143,9 @@
     >
       <template #append>
         <p v-if="noMore" class="text-center pt-32px">No more</p>
+        <p v-if="loading" class="text-center pt-4px">Loading...</p>
       </template>
     </titan-table>
-    <p v-if="loading" class="text-center pt-4px">Loading...</p>
   </div>
 </template>
 

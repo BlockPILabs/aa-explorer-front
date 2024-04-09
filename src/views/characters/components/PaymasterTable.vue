@@ -2,8 +2,8 @@
   import CopyMe from '@/components/CopyMe/index.vue'
   import { getPaymasterList } from '@/api/modules/stat'
   import { SORT_FIELD_MAP, TABLE_SORT_MAP } from '@/enums/SortMap'
+  import { useTitanTableScrollHeight } from '@/hooks/useTitanTableScrollHeight'
 
-  import { throttle } from 'lodash-es'
   const props = defineProps({
     network: {
       type: String,
@@ -104,11 +104,8 @@
   ])
   function load() {
     if (disabled.value) return
-    const throttled = throttle(() => {
-      page.value++
-      getList()
-    }, 300)
-    throttled()
+    page.value++
+    getList()
   }
   async function getList() {
     try {
@@ -147,29 +144,12 @@
     page.value = 1
     getList()
   }
-  function handleScroll(e) {
-    const { clientHeight, scrollTop, scrollHeight } = e.target
-    if (clientHeight + scrollTop === scrollHeight) {
-      load()
-    }
-  }
-  const table: any = ref(null)
-  const tableHeight = ref(0)
-  const { height } = useWindowSize()
-  const { top } = useElementBounding(table)
+
+  const { table, tableHeight } = useTitanTableScrollHeight()
 
   onMounted(() => {
     page.value = 1
     getList()
-    nextTick(() => {
-      tableHeight.value = height.value - top.value - 60
-      const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
-      dom.addEventListener('scroll', handleScroll)
-    })
-  })
-  onBeforeUnmount(() => {    
-    const dom = table.value.$refs.tableRef.$refs.scrollBarRef.wrapRef
-    dom.removeEventListener('scroll', handleScroll)
   })
 </script>
 
@@ -181,14 +161,17 @@
       :columns="tableCol"
       class="fixed-height-table"
       :hide-empty="true"
+      height="100%"
       :max-height="tableHeight"
+      v-el-table-infinite-scroll="load"
+      :infinite-scroll-disabled="disabled"
       @sort-change="handleSortChange"
     >
       <template #append>
         <p v-if="noMore" class="text-center pt-32px">No more</p>
+        <p v-if="loading" class="text-center pt-4px">Loading...</p>
       </template>
     </titan-table>
-    <p v-if="loading" class="text-center pt-4px">Loading...</p>
   </div>
 </template>
 

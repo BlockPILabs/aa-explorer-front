@@ -350,6 +350,7 @@
           type: 'bar',
           yAxisIndex: 0,
           name: 'UserOps',
+          barMaxWidth: '10px',
           encode: {
             x: 'time',
             y: 'userOpsNum'

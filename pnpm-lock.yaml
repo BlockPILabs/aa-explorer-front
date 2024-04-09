@@ -26,6 +26,9 @@ dependencies:
   echarts:
     specifier: ^5.4.3
     version: 5.4.3
+  el-table-infinite-scroll:
+    specifier: ^3.0.3
+    version: 3.0.3
   element-plus:
     specifier: ^2.3.9
     version: 2.3.9(vue@3.3.4)
@@ -2890,6 +2893,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /core-js@3.36.1:
+    resolution: {integrity: sha512-BTvUrwxVBezj5SZ3f10ImnX2oRByMxql3EimVqMysepbC9EeMUOpLwdy6Eoili2x6E4kf+ZUB5k/+Jv55alPfA==}
+    requiresBuild: true
+    dev: false
+
   /cors@2.8.5:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
     engines: {node: '>= 0.10'}
@@ -3250,6 +3258,16 @@ packages:
     dependencies:
       tslib: 2.3.0
       zrender: 5.4.4
+    dev: false
+
+  /el-table-infinite-scroll@3.0.3:
+    resolution: {integrity: sha512-cmMHg4MxrNOV2dFziV3ISRo+rM/3tAH8TE3wWMGKd4ucjvk21Bfb6MJfPuNAicLOkq4fYZm+J+mr0NmDPnvolQ==}
+    dependencies:
+      core-js: 3.36.1
+      element-plus: 2.3.9(vue@3.3.4)
+      vue: 3.3.4
+    transitivePeerDependencies:
+      - '@vue/composition-api'
     dev: false
 
   /electron-to-chromium@1.4.503:
