@@ -23,7 +23,7 @@
     getStat()
   }
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   const loading = ref(false)
   function initState() {
     return {
@@ -123,10 +123,7 @@
             <span class="c-#289FBE">Accumulative Gas Fee</span>
           </div>
           <div class="summary-value">
-            <svg-icon
-              :iconClass="'coin-' + choosingChain"
-              class="gas-icon"
-            ></svg-icon>
+            <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.accumulativeGasFee"
               format="0.[00]a"
@@ -145,10 +142,7 @@
             <span class="c-#E16FCD">Paymaster Gas Sponsored</span>
           </div>
           <div class="summary-value">
-            <svg-icon
-              :iconClass="'coin-' + choosingChain"
-              class="gas-icon"
-            ></svg-icon>
+            <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.paymasterGasPaid"
               format="0.[00]a"
@@ -167,10 +161,7 @@
             <span class="c-#329B57">Bundler Gas Profit</span>
           </div>
           <div class="summary-value">
-            <svg-icon
-              :iconClass="'coin-' + choosingChain"
-              class="gas-icon"
-            ></svg-icon>
+            <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.bundlerGasProfit"
               format="0.[00]a"
@@ -189,6 +180,7 @@
       class="mt-16px h-240px"
       :chartData="statChartData"
       :network="choosingChain"
+      :coinIcon="choosingCoinLogo"
     />
   </my-card>
 </template>

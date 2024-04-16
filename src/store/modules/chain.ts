@@ -30,10 +30,19 @@ export const useChainStore = defineStore('chain', () => {
     choosingChainObj.value = chain
   }
 
+  const choosingChainLogo = computed(() => {
+    return choosingChainObj.value?.chainIcon || ''
+  })
+
+  const choosingCoinLogo = computed(() => {
+    return choosingChainObj.value?.coinIcon || ''
+  })
   return {
     supportChains,
     choosingChainObj,
     choosingChain,
+    choosingChainLogo,
+    choosingCoinLogo,
     updateSupportChains,
     updateChooseChain
   }

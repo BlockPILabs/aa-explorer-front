@@ -7,7 +7,7 @@
   import PaymasterTable from './components/PaymasterTable.vue'
   import FactoryTable from './components/FactoryTable.vue'
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   defineOptions({
     name: 'CharacterList'
   })
@@ -37,7 +37,10 @@
           <svg-icon iconClass="turn" class="w-16px! h-16px!"></svg-icon>
         </div>
       </template>
-      <BundlerTable :network="choosingChain"></BundlerTable>
+      <BundlerTable
+        :network="choosingChain"
+        :coinIcon="choosingCoinLogo"
+      ></BundlerTable>
     </my-card>
     <my-card noPad>
       <template #title>
@@ -56,7 +59,10 @@
           <svg-icon iconClass="turn" class="w-16px! h-16px!"></svg-icon>
         </div>
       </template>
-      <PaymasterTable :network="choosingChain"></PaymasterTable>
+      <PaymasterTable
+        :network="choosingChain"
+        :coinIcon="choosingCoinLogo"
+      ></PaymasterTable>
     </my-card>
     <my-card noPad>
       <template #title>

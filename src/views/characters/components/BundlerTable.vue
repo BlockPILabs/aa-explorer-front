@@ -8,6 +8,10 @@
     network: {
       type: String,
       default: ''
+    },
+    coinIcon: {
+      type: String,
+      default: ''
     }
   })
   const sortField = ref('')
@@ -78,7 +82,7 @@
           <div>
             <div class='mb-4px'>
               <svg-icon
-                iconClass={'coin-' + props.network}
+                iconClass={props.coinIcon}
                 class='w-16px! h-16px! mr-4px'
               ></svg-icon>
               <number-show

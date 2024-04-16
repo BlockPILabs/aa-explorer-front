@@ -10,7 +10,7 @@
     name: 'Paymaster'
   })
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   const sortField = ref('')
   const sortOrder = ref('')
   const page = useRouteQuery('page', 1, { transform: Number })
@@ -83,7 +83,7 @@
         return (
           <div>
             <svg-icon
-              iconClass={'coin-' + choosingChain.value}
+              iconClass={choosingCoinLogo.value}
               class='w-16px! h-16px! mr-4px'
             ></svg-icon>
             <number-show

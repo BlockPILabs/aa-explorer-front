@@ -15,6 +15,10 @@
     loading: {
       type: Boolean,
       default: false
+    },
+    networkIcon: {
+      type: String,
+      default: ''
     }
   })
   const emits = defineEmits(['handle-command'])
@@ -27,10 +31,7 @@
   <div>
     <el-dropdown trigger="click" @command="handleCommand" v-loading="loading">
       <el-button type="primary">
-        <svg-icon
-          :iconClass="'coin-' + network"
-          class="w-16px! h-16px!"
-        ></svg-icon>
+        <svg-icon :iconClass="networkIcon" class="w-16px! h-16px!"></svg-icon>
         <span class="ml-4px mr-8px"
           >{{ networkObj.chainName }}&nbsp;{{ networkObj.name }}</span
         >

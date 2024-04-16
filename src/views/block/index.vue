@@ -12,7 +12,7 @@
   const TAB_STORAGE_KEY = 'choosing-bundler-tab'
   const chainStore = useChainStore()
   const { choosingChainObj } = chainStore
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainLogo } = storeToRefs(chainStore)
 
   const blockNumber: any = useRouteParams('blockNumber')
   const tabs = [
@@ -42,7 +42,7 @@
       <BackTo />
       <span class="fw-700 text-24px">Block</span>
       <svg-icon
-        :iconClass="'chain-' + choosingChain"
+        :iconClass="choosingChainLogo"
         class="w-24px! h-24px! ml-8px"
       ></svg-icon>
       <span class="fw-600 text-20px break-all">{{ blockNumber }}</span>

@@ -5,7 +5,7 @@
   import { useChainStore } from '@/store/modules/chain'
   import { useTitanTableScrollHeight } from '@/hooks/useTitanTableScrollHeight'
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainLogo } = storeToRefs(chainStore)
 
   const page = ref(1)
   const perPage = ref(20)
@@ -46,7 +46,7 @@
         return (
           <div>
             <svg-icon
-              iconClass={`chain-${choosingChain.value}`}
+              iconClass={choosingChainLogo.value}
               class='w-16px! h-16px! mr-4px'
             ></svg-icon>
             <CopyMe

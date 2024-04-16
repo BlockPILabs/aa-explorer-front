@@ -12,6 +12,12 @@ export function useAccountChain(address) {
   const currChain = computed(() => {
     return currChainObj.value?.network || ''
   })
+  const currChainLogo = computed(() => {
+    return currChainObj.value?.chainIcon || ''
+  })
+  const currCoinLogo = computed(() => {
+    return currChainObj.value?.coinIcon || ''
+  })
   const defaultNetwork = computed(() => {
     return network.value || choosingChain.value
   })
@@ -47,5 +53,13 @@ export function useAccountChain(address) {
   onMounted(() => {
     getChains()
   })
-  return { currChainObj, currChain, chainLoading, accountChains, setCurrChain }
+  return {
+    currChainObj,
+    currChain,
+    chainLoading,
+    accountChains,
+    currChainLogo,
+    currCoinLogo,
+    setCurrChain
+  }
 }

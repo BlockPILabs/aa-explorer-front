@@ -78,7 +78,7 @@
               class="network-box flex-shrink-0 w-48px h-48px mr-8px flex items-center justify-center"
             >
               <svg-icon
-                :iconClass="'chain-' + item.network"
+                :iconClass="item.chainIcon"
                 class="w-32px! h-32px!"
               ></svg-icon>
             </div>

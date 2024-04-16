@@ -11,7 +11,8 @@
   import { getOffset, formatTime } from '@/utils/time-utils'
   const chainStore = useChainStore()
   const { choosingChainObj } = chainStore
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainLogo, choosingCoinLogo } =
+    storeToRefs(chainStore)
   const tx: any = useRouteParams('tx')
 
   function visitMore() {
@@ -158,7 +159,7 @@
         return (
           <div>
             <svg-icon
-              iconClass={'coin-' + row.network}
+              iconClass={choosingCoinLogo.value}
               class='w-16px! h-16px! mr-4px'
             ></svg-icon>
             <number-show
@@ -267,7 +268,7 @@
       <BackTo />
       <span class="fw-700 text-24px">Transaction Hash</span>
       <svg-icon
-        :iconClass="'chain-' + choosingChain"
+        :iconClass="choosingChainLogo"
         class="w-24px! h-24px! ml-8px"
       ></svg-icon>
       <span class="fw-600 text-20px break-all">{{ tx }}</span>
@@ -312,7 +313,11 @@
       <template #title>
         <span class="text-18px fw-700">Transaction Info</span>
       </template>
-      <TxDetail :choosingChain="choosingChain" :hash="tx"></TxDetail>
+      <TxDetail
+        :choosingChain="choosingChain"
+        :hash="tx"
+        :coinIcon="choosingCoinLogo"
+      ></TxDetail>
     </my-card>
   </div>
 </template>

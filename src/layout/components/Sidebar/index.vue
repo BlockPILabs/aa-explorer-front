@@ -23,7 +23,7 @@
     url: 'https://discord.com/channels/900985418202365982/901031135927226399'
   })
 
-  const { choosingChain, choosingChainObj } = storeToRefs(chainStore)
+  const { choosingChainObj, choosingChainLogo } = storeToRefs(chainStore)
   const chainName = computed(() => {
     return choosingChainObj.value.chainName
   })
@@ -47,10 +47,7 @@
         :class="{ 'is-compressed': !opened }"
         @click="changeChain"
       >
-        <svg-icon
-          :icon-class="`chain-${choosingChain}`"
-          class="chain-icon"
-        ></svg-icon>
+        <svg-icon :icon-class="choosingChainLogo" class="chain-icon"></svg-icon>
       </div>
       <div
         class="current-chain cursor-pointer flex items-center mt-10px"

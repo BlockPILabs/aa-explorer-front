@@ -8,6 +8,10 @@
     bundler: {
       type: [Number, String],
       default: 0
+    },
+    coinIcon: {
+      type: String,
+      default: ''
     }
   })
 </script>
@@ -16,6 +20,7 @@
   <CommonTxTable
     :choosingChain="choosingChain"
     :address="bundler"
+    :coinIcon="coinIcon"
   ></CommonTxTable>
 </template>
 

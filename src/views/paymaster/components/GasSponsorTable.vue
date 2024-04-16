@@ -16,6 +16,10 @@
     paymaster: {
       type: [Number, String],
       default: 0
+    },
+    coinIcon: {
+      type: String,
+      default: ''
     }
   })
   const page = useRouteQuery('page', 1, { transform: Number })
@@ -205,7 +209,7 @@
         return (
           <div>
             <svg-icon
-              iconClass={'coin-' + row.network}
+              iconClass={props.coinIcon}
               class='w-16px! h-16px! mr-4px'
             ></svg-icon>
             <number-show

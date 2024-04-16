@@ -5,7 +5,7 @@
   import { getBlockList } from '@/api/modules/stat'
   import { last } from 'lodash-es'
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   const router = useRouter()
   let activeTimeout = false
   const timeoutId = ref<any>(null)
@@ -127,7 +127,7 @@
             <div>
               <div class="mb-4px">
                 <svg-icon
-                  :iconClass="'coin-' + choosingChain"
+                  :iconClass="choosingCoinLogo"
                   class="w-16px! h-16px! mr-4px"
                 ></svg-icon>
                 <number-show

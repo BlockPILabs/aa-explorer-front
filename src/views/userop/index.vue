@@ -17,7 +17,8 @@
 
   const chainStore = useChainStore()
   const { choosingChainObj } = chainStore
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainLogo, choosingCoinLogo } =
+    storeToRefs(chainStore)
   const userop: any = useRouteParams('userop')
   const currTab = useRouteQuery('tab', 'details', { transform: String })
   const tabs = [
@@ -85,7 +86,7 @@
       <BackTo />
       <span class="fw-700 text-24px">UserOp Hash</span>
       <svg-icon
-        :iconClass="'chain-' + choosingChain"
+        :iconClass="choosingChainLogo"
         class="w-24px! h-24px! ml-8px"
       ></svg-icon>
       <span class="fw-600 text-20px break-all">{{ userop }}</span>
@@ -148,7 +149,7 @@
           </div>
           <div class="value">
             <svg-icon
-              :iconClass="'coin-' + choosingChain"
+              :iconClass="choosingCoinLogo"
               class="w-16px! h-16px! mr-4px"
             ></svg-icon>
             <number-show
@@ -172,7 +173,7 @@
           </div>
           <div class="value">
             <svg-icon
-              :iconClass="'coin-' + choosingChain"
+              :iconClass="choosingCoinLogo"
               class="w-16px! h-16px! mr-4px"
             ></svg-icon>
             <number-show
@@ -251,7 +252,7 @@
           </div>
           <div class="value">
             <svg-icon
-              :iconClass="'coin-' + choosingChain"
+              :iconClass="choosingCoinLogo"
               class="w-16px! h-16px! mr-4px"
             ></svg-icon>
             <number-show
@@ -291,7 +292,7 @@
           </div>
           <div class="value">
             <svg-icon
-              :iconClass="'coin-' + choosingChain"
+              :iconClass="choosingCoinLogo"
               class="w-16px! h-16px! mr-4px"
             ></svg-icon>
             <number-show
@@ -322,6 +323,7 @@
             <component
               :is="currCom"
               :choosingChain="choosingChain"
+              :coinIcon="choosingCoinLogo"
               :hash="useropDetail.txHash"
               :loading="detailLoading"
               :useropDetail="useropDetail"

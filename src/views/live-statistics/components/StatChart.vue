@@ -33,6 +33,10 @@
     network: {
       type: String,
       default: ''
+    },
+    coinIcon: {
+      type: String,
+      default: ''
     }
   })
   const appStore = useAppStore()
@@ -157,9 +161,9 @@
                 font-weight: 600;
               "
               >
-              <svg aria-hidden="true" class="svg-icon gas-icon" style="width: 16px; height: 16px;"><use xlink:href="#icon-coin-${
-                props.network
-              }"></use></svg>
+              <img class="svg-icon gas-icon" style="width: 16px; height: 16px; vertical-align: -0.15em" src="${
+                props.coinIcon
+              }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['accumulativeGasFee'],
                 '0.[00]a'
@@ -203,9 +207,9 @@
                 font-weight: 600;
               "
               >
-              <svg aria-hidden="true" class="svg-icon gas-icon" style="width: 16px; height: 16px;"><use xlink:href="#icon-coin-${
-                props.network
-              }"></use></svg>
+              <img class="svg-icon gas-icon" style="width: 16px; height: 16px; vertical-align: -0.15em;" src="${
+                props.coinIcon
+              }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['paymasterGasPaid'],
                 '0.[00]a'
@@ -251,9 +255,9 @@
                 font-weight: 600;
               "
               >
-              <svg aria-hidden="true" class="svg-icon gas-icon" style="width: 16px; height: 16px;"><use xlink:href="#icon-coin-${
-                props.network
-              }"></use></svg>
+              <img class="svg-icon gas-icon" style="width: 16px; height: 16px; vertical-align: -0.15em" src="${
+                props.coinIcon
+              }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['bundlerGasProfit'],
                 '0.[00]a'

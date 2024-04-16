@@ -14,8 +14,14 @@
   })
 
   const bundler: any = useRouteParams('bundler')
-  const { currChainObj, currChain, chainLoading, accountChains, setCurrChain } =
-    useAccountChain(bundler.value)
+  const {
+    currChainObj,
+    currChain,
+    chainLoading,
+    accountChains,
+    currChainLogo,
+    setCurrChain
+  } = useAccountChain(bundler.value)
   function handleCommand(command) {
     setCurrChain(command)
   }
@@ -106,7 +112,7 @@
         <BackTo />
         <span class="fw-700 text-24px">Bundler</span>
         <svg-icon
-          :iconClass="'chain-' + currChain"
+          :iconClass="currChainLogo"
           class="w-24px! h-24px! ml-8px"
         ></svg-icon>
         <span class="fw-600 text-20px break-all">{{ bundler }}</span>
@@ -135,6 +141,7 @@
       </div>
       <AccountChain
         :network="currChain"
+        :networkIcon="currChainLogo"
         :networkObj="currChainObj"
         :list="accountChains"
         :loading="chainLoading"

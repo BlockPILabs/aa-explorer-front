@@ -16,7 +16,7 @@
         @click="changeChain"
       >
         <svg-icon
-          :icon-class="`chain-${choosingChain}`"
+          :icon-class="choosingChainLogo"
           class="chain-icon w-20px! h-20px!"
         ></svg-icon>
       </div>
@@ -50,7 +50,7 @@
   import ChainDialog from '../Sidebar/ChainDialog.vue'
 
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChainLogo } = storeToRefs(chainStore)
   defineProps({
     showChain: {
       type: Boolean,

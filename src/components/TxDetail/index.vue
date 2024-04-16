@@ -11,6 +11,10 @@
     choosingChain: {
       type: String,
       default: ''
+    },
+    coinIcon: {
+      type: String,
+      default: ''
     }
   })
   const txDetail: any = ref({})
@@ -251,10 +255,7 @@
       </el-col>
       <el-col :md="18">
         <div>
-          <svg-icon
-            :iconClass="'coin-' + choosingChain"
-            class="w-16px! h-16px!"
-          ></svg-icon>
+          <svg-icon :iconClass="coinIcon" class="w-16px! h-16px!"></svg-icon>
           <number-show
             :number="txDetail.value"
             format="0,0.[000000]"
@@ -276,10 +277,7 @@
       </el-col>
       <el-col :md="18">
         <div>
-          <svg-icon
-            :iconClass="'coin-' + choosingChain"
-            class="w-16px! h-16px!"
-          ></svg-icon>
+          <svg-icon :iconClass="coinIcon" class="w-16px! h-16px!"></svg-icon>
           <number-show
             :number="(txDetail.gasUsed * txDetail.gasPrice) / 1e18"
             format="0,0.[000000]"

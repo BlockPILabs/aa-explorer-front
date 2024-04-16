@@ -7,7 +7,7 @@
   import PaymasterTable from './components/PaymasterTable.vue'
   import FactoryTable from './components/FactoryTable.vue'
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   const listTypes = ref([
     { label: 'Bundler', value: 'bundler', icon: 'bundler' },
     { label: 'Paymaster', value: 'paymaster', icon: 'paymaster' },
@@ -42,7 +42,11 @@
       ></CustomTabs>
     </template>
     <keep-alive>
-      <component :is="currCom" :network="choosingChain"></component>
+      <component
+        :is="currCom"
+        :network="choosingChain"
+        :coinIcon="choosingCoinLogo"
+      ></component>
     </keep-alive>
   </my-card>
 </template>

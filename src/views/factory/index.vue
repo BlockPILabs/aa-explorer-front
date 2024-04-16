@@ -11,8 +11,14 @@
   })
 
   const factory: any = useRouteParams('factory')
-  const { currChainObj, currChain, chainLoading, accountChains, setCurrChain } =
-    useAccountChain(factory.value)
+  const {
+    currChainObj,
+    currChain,
+    chainLoading,
+    accountChains,
+    currChainLogo,
+    setCurrChain
+  } = useAccountChain(factory.value)
   function handleCommand(command) {
     setCurrChain(command)
   }
@@ -62,7 +68,7 @@
         <BackTo />
         <span class="fw-700 text-24px">Factory</span>
         <svg-icon
-          :iconClass="'chain-' + currChain"
+          :iconClass="currChainLogo"
           class="w-24px! h-24px! ml-8px"
         ></svg-icon>
         <span class="fw-600 text-20px break-all">{{ factory }}</span>
@@ -91,6 +97,7 @@
       </div>
       <AccountChain
         :network="currChain"
+        :networkIcon="currChainLogo"
         :networkObj="currChainObj"
         :list="accountChains"
         :loading="chainLoading"
@@ -119,9 +126,7 @@
           <div class="label">
             <span
               >Total
-              {{
-                factoryDetail.accountDeployNum > 1 ? 'Accounts' : 'Account'
-              }}
+              {{ factoryDetail.accountDeployNum > 1 ? 'Accounts' : 'Account' }}
               Deployed</span
             >
           </div>

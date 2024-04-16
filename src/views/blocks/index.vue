@@ -8,7 +8,7 @@
     name: 'BlockList'
   })
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingCoinLogo } = storeToRefs(chainStore)
   const page = useRouteQuery('page', 1, { transform: Number })
   function handleQuery() {
     getList()
@@ -84,7 +84,7 @@
           <div>
             <div class='mb-4px'>
               <svg-icon
-                iconClass={'coin-' + choosingChain.value}
+                iconClass={choosingCoinLogo.value}
                 class='w-16px! h-16px! mr-4px'
               ></svg-icon>
               <number-show
@@ -126,7 +126,7 @@
     //       <div>
     //         <div class='mb-4px'>
     //           <svg-icon
-    //             iconClass={'coin-' + choosingChain.value}
+    //             iconClass={choosingCoinLogo}
     //             class='w-16px! h-16px! mr-4px'
     //           ></svg-icon>
     //           <number-show number={row.fee_amount} class='fw-600' />
@@ -164,7 +164,7 @@
     //       <div>
     //         <div class='mb-4px'>
     //           <svg-icon
-    //             iconClass={'coin-' + choosingChain.value}
+    //             iconClass={choosingCoinLogo}
     //             class='w-16px! h-16px! mr-4px'
     //           ></svg-icon>
     //           <number-show number={row.fee_amount} class='fw-600' />

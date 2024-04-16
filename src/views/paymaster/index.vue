@@ -15,8 +15,15 @@
   const TAB_STORAGE_KEY = 'choosing-paymaster-tab'
 
   const paymaster: any = useRouteParams('paymaster')
-  const { currChainObj, currChain, chainLoading, accountChains, setCurrChain } =
-    useAccountChain(paymaster.value)
+  const {
+    currChainObj,
+    currChain,
+    chainLoading,
+    accountChains,
+    currChainLogo,
+    currCoinLogo,
+    setCurrChain
+  } = useAccountChain(paymaster.value)
   function handleCommand(command) {
     setCurrChain(command)
   }
@@ -113,7 +120,7 @@
         <BackTo />
         <span class="fw-700 text-24px">Paymaster</span>
         <svg-icon
-          :iconClass="'chain-' + currChain"
+          :iconClass="currChainLogo"
           class="w-24px! h-24px! ml-8px"
         ></svg-icon>
         <span class="fw-600 text-20px break-all">{{ paymaster }}</span>
@@ -142,6 +149,7 @@
       </div>
       <AccountChain
         :network="currChain"
+        :networkIcon="currChainLogo"
         :networkObj="currChainObj"
         :list="accountChains"
         :loading="chainLoading"
@@ -209,7 +217,11 @@
             </el-tooltip>
           </div>
           <div class="value">
-            <span>No.{{ paymasterDetail.rank }}/{{ paymasterDetail.totalNumber }}</span>
+            <span
+              >No.{{ paymasterDetail.rank }}/{{
+                paymasterDetail.totalNumber
+              }}</span
+            >
           </div>
         </div>
         <div>
@@ -243,6 +255,7 @@
             <component
               :is="currCom"
               :choosingChain="currChain"
+              :coinIcon="currCoinLogo"
               :paymaster="paymaster"
             ></component>
           </KeepAlive>
