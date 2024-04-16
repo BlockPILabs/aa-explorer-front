@@ -118,7 +118,10 @@
           <div>
             <p class="flex gap-4px items-center mb-8px">
               <span class="c-#60626A">AA Whales Ratio</span>
-              <el-tooltip placement="top" content="TBD">
+              <el-tooltip
+                placement="top"
+                content="Number of whales over total users."
+              >
                 <svg-icon
                   iconClass="question"
                   class="w-16px! h-16px!"
