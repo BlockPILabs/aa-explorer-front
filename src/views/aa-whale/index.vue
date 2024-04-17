@@ -6,7 +6,7 @@
   import { storeToRefs } from 'pinia'
   import { useChainStore } from '@/store/modules/chain'
   const chainStore = useChainStore()
-  const { choosingChain } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainObj } = storeToRefs(chainStore)
   const periods = ref([
     { label: '1D', value: 'h24' },
     { label: '7D', value: 'd7' },
@@ -66,13 +66,6 @@
     <div class="mb-24px">
       <span class="fw-700 text-24px">AA Whale Ranking</span>
     </div>
-    <div class="mt-16px mb-24px c-#60626A fw-400">
-      <span>
-        All AA addresses that hold WETH tokens with balances equal to or greater
-        than 0.01% of the total supply were calculated.
-      </span>
-    </div>
-
     <el-row :gutter="16">
       <el-col :md="8">
         <div
@@ -90,7 +83,7 @@
               <span class="c-#60626A">AA Whales Txn Dominance %</span>
               <el-tooltip
                 placement="top"
-                content="The percentage of ERC-4337 transactions from whales out of the total ERC-4337 transactions."
+                content="The percentage of ERC-4337 transactions from whales in the past 7 days to the total ERC-4337 transactions."
               >
                 <svg-icon
                   iconClass="question"
@@ -168,7 +161,10 @@
           </div>
           <div>
             <p class="flex gap-4px items-center mb-8px">
-              <span class="c-#60626A">Whales Total WETH Balance</span>
+              <span class="c-#60626A"
+                >Whales Total
+                {{ choosingChainObj?.nativeSymbol || 'ETH' }} Balance</span
+              >
             </p>
             <number-show
               :number="whalesETHBalance"
