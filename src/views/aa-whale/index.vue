@@ -5,6 +5,7 @@
   import { getChart, getOverview } from '@/api/modules/whale'
   import { storeToRefs } from 'pinia'
   import { useChainStore } from '@/store/modules/chain'
+  import { pureFormatNumber } from '@/components/NumberShow/pure-format'
   const chainStore = useChainStore()
   const { choosingChain, choosingChainObj } = storeToRefs(chainStore)
   const periods = ref([
@@ -25,7 +26,10 @@
       const res = await getChart(choosingChain.value, {
         timeRange: currPeriod.value
       })
-      list.value = res?.details || []
+      list.value = (res?.details || []).map((item) => {
+        item.value = pureFormatNumber(item.value, '0.[000000]')
+        return item
+      })
     } catch (error) {
       list.value = []
       console.error(error)
