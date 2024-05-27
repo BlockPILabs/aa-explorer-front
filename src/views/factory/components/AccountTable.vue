@@ -101,7 +101,7 @@
         return (
           <number-show
             number={row.totalBalanceUsd}
-            format='{$}0,0.[000000]'
+            format='{$}0,0.[000]'
           ></number-show>
         )
       }

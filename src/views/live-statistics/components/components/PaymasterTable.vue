@@ -43,7 +43,7 @@
       prop: 'reserveUsd',
       align: 'right',
       render: ({ row }) => {
-        return <number-show number={row.reserveUsd} format='{$}0,0.[000000]' />
+        return <number-show number={row.reserveUsd} format='{$}0,0.[000]' />
       }
     },
     {
@@ -66,7 +66,7 @@
             <div>
               <number-show
                 number={row.gasSponsoredUsd}
-                format='{&asymp;$}0,0.[000000]'
+                format='{&asymp;$}0,0.[000]'
                 class='c-#93959C'
               />
             </div>

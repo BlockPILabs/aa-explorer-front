@@ -7,9 +7,12 @@
   import SvgIcon from '@/components/SvgIcon/index.vue'
   import { useRoute } from 'vue-router'
   import { useAppStore } from '@/store/modules/app'
+  import { useWalletStore } from '@/store/modules/wallet'
   const appStore = useAppStore()
   const { sidebar } = storeToRefs(appStore)
   const { opened } = toRefs(sidebar.value)
+  const walletStore = useWalletStore()
+  const { hasSigned } = storeToRefs(walletStore)
   const route = useRoute()
   const currentPath = computed(() => {
     return route.path
@@ -27,31 +30,28 @@
     }
   })
 
-  const onlyOneChild = ref() 
+  const onlyOneChild = ref()
 
   /**
    *
    *
-   * @param children 
-   * @param parent 
+   * @param children
+   * @param parent
    */
   function hasOneShowingChild(children = [], parent: any) {
-    
     const showingChildren = children.filter((item: any) => {
       if (item.meta?.hidden) {
-        return false 
+        return false
       } else {
-        onlyOneChild.value = item 
+        onlyOneChild.value = item
         return true
       }
     })
 
-    
     if (showingChildren.length === 1) {
       return true
     }
 
-    
     if (showingChildren.length === 0) {
       onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
 
@@ -61,9 +61,9 @@
   }
 
   /**
-   * 
    *
-   * @param routePath 
+   *
+   * @param routePath
    */
   function resolvePath(routePath: string) {
     if (isExternal(routePath)) {
@@ -73,7 +73,7 @@
       return props.basePath
     }
 
-    const fullPath = path.resolve(props.basePath, routePath) 
+    const fullPath = path.resolve(props.basePath, routePath)
     return fullPath
   }
 </script>
@@ -98,6 +98,17 @@
             :icon-class="onlyOneChild.meta.icon"
             class="menu-icon"
           />
+          <span
+            v-if="
+              opened &&
+              onlyOneChild.meta &&
+              onlyOneChild.meta.requireLogin &&
+              !hasSigned
+            "
+            class="login-tag inline-block absolute right-8px bg-#64C78C b-#139475 b-1px b-solid rd-4px c-#fff px-3px py-2px text-12px fw-600 lh-15px"
+          >
+            Login
+          </span>
           <template #title>
             {{ onlyOneChild.meta.title }}
           </template>

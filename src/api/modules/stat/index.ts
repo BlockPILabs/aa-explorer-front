@@ -114,3 +114,23 @@ export function getTxDetail(net, params) {
 export function getUseropsInTx(net, params) {
   return http.get(URL.stat.useropsInTx(net), { params })
 }
+
+export function getBlockMevs(net, params) {
+  return http.get(URL.stat.blockMev(net), { params })
+}
+
+export function getBundlerMev(net, params) {
+  return http.get(URL.stat.bundlerMev(net), { params })
+}
+
+export function getAttacks(net, params) {
+  return http.get(URL.stat.latestAttacks(net), { params })
+}
+
+export function getMevTransaction(net, params) {
+  return http.get(URL.stat.mevTransaction(net), { params })
+}
+
+export function getMevInfo(net) {
+  return http.get(URL.stat.mevInfo(net))
+}

@@ -160,7 +160,7 @@
           <div class="value">
             <number-show
               :number="bundlerDetail.feeEarnedUsdD1"
-              format="{$}0,0.[000000]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>
@@ -171,7 +171,7 @@
           <div class="value">
             <number-show
               :number="bundlerDetail.feeEarnedUsd"
-              format="{$}0,0.[000000]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>

@@ -96,7 +96,7 @@
             <div>
               <number-show
                 number={row.bundlerProfitUsd}
-                format='{&asymp;$}0,0.[000000]'
+                format='{&asymp;$}0,0.[000]'
                 class='c-#93959C'
               />
             </div>

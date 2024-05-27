@@ -74,6 +74,21 @@ export const URL = {
     },
     useropsInTx: (net) => {
       return `/network/${net}/useropsAnalysisList`
+    },
+    blockMev: (net) => {
+      return `/network/${net}/block/mev`
+    },
+    bundlerMev: (net) => {
+      return `/network/${net}/bundler/mev`
+    },
+    latestAttacks: (net) => {
+      return `/network/${net}/monitor/listMev`
+    },
+    mevTransaction: (net) => {
+      return `/network/${net}/mevTransaction`
+    },
+    mevInfo: (net) => {
+      return `/network/${net}/monitor/mevInfo`
     }
   },
   whale: {
@@ -85,6 +100,23 @@ export const URL = {
     },
     chart: (net) => {
       return `/network/${net}/whaleChart`
+    }
+  },
+  monitor: {
+    overview: (net) => {
+      return `/network/${net}/monitor/assetDetail`
+    },
+    addMonitor: (net) => {
+      return `/network/${net}/addMonitor`
+    },
+    removeMonitor: (net) => {
+      return `/network/${net}/removeMonitor`
+    },
+    trackerList: (net) => {
+      return `/network/${net}/monitor/trackerList`
+    },
+    accountType: (net) => {
+      return `/network/${net}/monitor/accountType`
     }
   }
 }

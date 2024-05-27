@@ -159,7 +159,8 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: 'Monitor',
         meta: {
           title: 'Monitor',
-          icon: 'aim'
+          icon: 'aim',
+          requireLogin: true
         }
       }
     ]

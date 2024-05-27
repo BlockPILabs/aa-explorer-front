@@ -264,7 +264,7 @@
           <number-show
             class="pure-text"
             :number="txDetail.valueUsd"
-            format="{($}0,0.[000000]{)}"
+            format="{($}0,0.[000]{)}"
           ></number-show>
         </div>
       </el-col>
@@ -289,7 +289,7 @@
               (txDetail.gasUsed * txDetail.gasPrice * txDetail.tokenPriceUsd) /
               1e18
             "
-            format="{($}0,0.[000000]{)}"
+            format="{($}0,0.[000]{)}"
           ></number-show>
         </div>
       </el-col>
