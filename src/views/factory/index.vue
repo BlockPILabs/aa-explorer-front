@@ -29,7 +29,7 @@
     )
     window.open(url, '_blank', 'noopener=yes,noreferrer=yes')
   }
-  const factoryDetail = reactive({
+  const initState = {
     accountDeployNum: 0,
     accountDeployNumD1: 0,
     userOpsNum: 0,
@@ -37,7 +37,8 @@
     label: [],
     dominance: 0,
     totalNumber: 0
-  })
+  }
+  const factoryDetail = reactive({ ...initState })
   const detailLoading = ref(false)
   async function getDetail(val) {
     try {
@@ -52,6 +53,7 @@
       factoryDetail.totalNumber = res.totalNumber
     } catch (error) {
       console.error(error)
+      Object.assign(factoryDetail, initState)
     } finally {
       detailLoading.value = false
     }

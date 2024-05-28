@@ -73,7 +73,7 @@
     )
     window.open(url, '_blank', 'noopener=yes,noreferrer=yes')
   }
-  const paymasterDetail = reactive({
+  const initState = {
     sponsorGasFee24h: 0,
     userOpsNum24h: 0,
     sponsorGasFeeTotal: 0,
@@ -84,7 +84,8 @@
     estimateTxnNum: 0,
     label: [],
     totalNumber: 0
-  })
+  }
+  const paymasterDetail = reactive({ ...initState })
   const detailLoading = ref(false)
   async function getDetail(val) {
     try {
@@ -104,6 +105,7 @@
       paymasterDetail.totalNumber = res.totalNumber
     } catch (error) {
       console.error(error)
+      Object.assign(paymasterDetail, initState)
     } finally {
       detailLoading.value = false
     }

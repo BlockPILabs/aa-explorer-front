@@ -26,7 +26,7 @@
     {
       label: 'Address',
       prop: 'factory',
-      minWidth: 120,
+      minWidth: 130,
       render: ({ row }) => {
         const dom = row.factoryLabel ? (
           <div class='inline-flex mt-4px px-4px py-2px rd-4px bg-#D8DFFF c-#60626A'>
@@ -54,7 +54,7 @@
       label: 'Active Accounts',
       prop: 'accountNumD1',
       sortable: 'custom',
-      minWidth: 130,
+      minWidth: 144,
       render: ({ row }) => {
         return (
           <div>
@@ -73,7 +73,7 @@
       prop: 'accountNum',
       align: 'right',
       sortable: 'custom',
-      minWidth: 120,
+      minWidth: 134,
       render: ({ row }) => {
         return <number-show number={row.accountNum} />
       }

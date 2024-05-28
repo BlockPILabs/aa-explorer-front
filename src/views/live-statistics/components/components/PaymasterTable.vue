@@ -25,6 +25,7 @@
     {
       label: 'Address',
       prop: 'address',
+      minWidth: 130,
       render: ({ row }) => {
         return (
           <CopyMe
@@ -42,6 +43,7 @@
       label: 'Reserve',
       prop: 'reserveUsd',
       align: 'right',
+      minWidth: 80,
       render: ({ row }) => {
         return <number-show number={row.reserveUsd} format='{$}0,0.[000]' />
       }
@@ -49,6 +51,7 @@
     {
       label: 'Gas Sponsored',
       align: 'right',
+      minWidth: 118,
       render: ({ row }) => {
         return (
           <div>

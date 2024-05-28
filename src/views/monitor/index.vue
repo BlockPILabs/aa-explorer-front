@@ -7,7 +7,19 @@
   import WalletInfo from './components/WalletInfo/index.vue'
   import TrackerList from './components/TrackerList.vue'
   import { v4 as uuidv4 } from 'uuid'
+  import { createWeb3Modal } from '@web3modal/wagmi/vue'
 
+  import { config, projectId } from '@/config'
+  createWeb3Modal({
+    themeMode: 'light',
+    themeVariables: {
+      '--w3m-font-family': 'Barlow',
+      '--w3m-z-index': 9999999
+    },
+    // @ts-ignore
+    wagmiConfig: config,
+    projectId
+  })
   defineOptions({
     name: 'Monitor'
   })

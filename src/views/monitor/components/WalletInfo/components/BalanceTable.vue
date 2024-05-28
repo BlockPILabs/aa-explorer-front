@@ -13,10 +13,10 @@
   })
   const tableCol = ref<any>([
     {
-      minWidth: 80,
+      minWidth: 90,
       render: ({ row, index }) => {
         const idx = index % COLOR_LIST.length
-        const color = COLOR_LIST[index]
+        const color = COLOR_LIST[idx]
         return (
           <div class='flex items-center gap-4px'>
             <span
@@ -31,9 +31,14 @@
     {
       minWidth: 100,
       render: ({ row }) => {
+        const img = row.tokenUrl ? (
+          <img src={row.tokenUrl} class='max-w-100% max-h-100%'></img>
+        ) : (
+          ''
+        )
         return (
-          <div class='flex items-center flex-wrap gap-4px'>
-            <div class='w-32px h-32px rd-50% p-6px bg-#F5F5F5'></div>
+          <div class='flex-center flex-wrap gap-4px'>
+            <div class='w-32px h-32px rd-50% p-6px bg-#F5F5F5'>{img}</div>
             <span>{row.symbol}</span>
           </div>
         )

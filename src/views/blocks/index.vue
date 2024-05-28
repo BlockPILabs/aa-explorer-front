@@ -67,14 +67,14 @@
         return <number-show number={row.useropCount} />
       }
     },
-    // {
-    //   label: 'MEV',
-    //   prop: 'mev',
-    //   align: 'right',
-    //   render: ({ row }) => {
-    //     return <number-show number={row.mev} />
-    //   }
-    // },
+    {
+      label: 'MEV',
+      prop: 'mevCount',
+      align: 'right',
+      render: ({ row }) => {
+        return <number-show number={row.mevCount} />
+      }
+    },
     {
       label: 'Bundler Profits',
       prop: 'bundlerProfit',
@@ -103,83 +103,67 @@
           </div>
         )
       }
+    },
+    {
+      label: 'Bundler Loss',
+      prop: 'bundlerLoss',
+      align: 'right',
+      minWidth: 150,
+      render: ({ row }) => {
+        return (
+          <div>
+            <div class='mb-4px'>
+              <svg-icon
+                iconClass={choosingCoinLogo.value}
+                class='w-16px! h-16px! mr-4px'
+              ></svg-icon>
+              <number-show
+                number={row.bundlerLoss}
+                class='fw-600'
+                format='0,0.[000000]'
+              />
+            </div>
+            <div>
+              <number-show
+                number={row.bundlerLossInUsd}
+                format='{&asymp;$}0,0.[000]'
+                class='c-#93959C'
+              />
+            </div>
+          </div>
+        )
+      }
+    },
+    {
+      label: 'MEV Profits',
+      prop: 'mevProfits',
+      align: 'right',
+      minWidth: 150,
+      render: ({ row }) => {
+        return (
+          <div>
+            <div class='mb-4px'>
+              <svg-icon
+                iconClass={choosingCoinLogo.value}
+                class='w-16px! h-16px! mr-4px'
+              ></svg-icon>
+              <number-show
+                number={row.mevProfits}
+                class='fw-600'
+                format='0,0.[000000]'
+              />
+            </div>
+            <div>
+              <number-show
+                number={row.mevProfitsInUsd}
+                format='{&asymp;$}0,0.[000]'
+                class='c-#93959C'
+              />
+            </div>
+          </div>
+        )
+      }
     }
-    // {
-    //   prop: 'profit',
-    //   align: 'right',
-    //   sortable: 'custom',
-    //   headerRender: () => {
-    //     return (
-    //       <span>
-    //         <span>Bundler Loss</span>
-    //         <el-tooltip content='???' placement='top'>
-    //           <svg-icon
-    //             iconClass='question'
-    //             class='ml-4px w-16px! h-16px!'
-    //           ></svg-icon>
-    //         </el-tooltip>
-    //       </span>
-    //     )
-    //   },
-    //   render: ({ row }) => {
-    //     return (
-    //       <div>
-    //         <div class='mb-4px'>
-    //           <svg-icon
-    //             iconClass={choosingCoinLogo}
-    //             class='w-16px! h-16px! mr-4px'
-    //           ></svg-icon>
-    //           <number-show number={row.fee_amount} class='fw-600' />
-    //         </div>
-    //         <div>
-    //           <number-show
-    //             number={row.fee}
-    //             format='{&asymp;$}0,0.[00]'
-    //             class='c-#93959C'
-    //           />
-    //         </div>
-    //       </div>
-    //     )
-    //   }
-    // },
-    // {
-    //   prop: 'profit',
-    //   align: 'right',
-    //   sortable: 'custom',
-    //   headerRender: () => {
-    //     return (
-    //       <span>
-    //         <span>MEV Profits</span>
-    //         <el-tooltip content='???' placement='top'>
-    //           <svg-icon
-    //             iconClass='question'
-    //             class='ml-4px w-16px! h-16px!'
-    //           ></svg-icon>
-    //         </el-tooltip>
-    //       </span>
-    //     )
-    //   },
-    //   render: ({ row }) => {
-    //     return (
-    //       <div>
-    //         <div class='mb-4px'>
-    //           <svg-icon
-    //             iconClass={choosingCoinLogo}
-    //             class='w-16px! h-16px! mr-4px'
-    //           ></svg-icon>
-    //           <number-show number={row.fee_amount} class='fw-600' />
-    //         </div>
-    //         <div>
-    //           <number-show
-    //             number={row.fee}
-    //             format='{&asymp;$}0,0.[00]'
-    //             class='c-#93959C'
-    //           />
-    //         </div>
-    //       </div>
-    //     )
-    //   }
-    // }
   ])
 </script>
 
