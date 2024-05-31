@@ -3,7 +3,7 @@
   import { useWalletStore } from '@/store/modules/wallet'
   import { useChainStore } from '@/store/modules/chain'
   import { getOverview } from '@/api/modules/monitor'
-  import { useStorage, StorageSerializers } from '@vueuse/core'
+  import { useStorage, StorageSerializers, useTimeoutFn } from '@vueuse/core'
   import CopyMe from '@/components/CopyMe/index.vue'
   import BalanceChart from './components/BalanceChart.vue'
   import BalanceTable from './components/BalanceTable.vue'
@@ -46,7 +46,12 @@
       })
       list.value = res?.assetDetails || []
       totalAmount.value = Number(res.totalAssetUsd)
-    } catch (error) {
+    } catch (error: any) {
+      if (error.code === 20003) {
+        useTimeoutFn(() => {
+          getInfo()
+        }, 30 * 1000)
+      }
     } finally {
       loading.value = false
     }
