@@ -99,9 +99,7 @@
     </el-input>
     <div class="mt-8px mb-16px">
       <span class="c-#93959c" v-show="addressType">{{ addressType }}</span>
-      <span class="c-#C16666" v-show="notFound">
-        Address not found.
-      </span>
+      <span class="c-#C16666" v-show="notFound"> Address not found. </span>
     </div>
     <div class="w-100% h-1px bg-#EDECEC my-16px"></div>
     <el-scrollbar
@@ -121,7 +119,7 @@
                 class="w-32px! h-32px!"
               ></svg-icon>
             </div>
-            <div>
+            <div class="break-all">
               <strong class="text-16px mb-2px">{{ item.chainName }}</strong
               ><br />
               <span class="c-#93959c">{{ item.name }}</span>
@@ -159,6 +157,17 @@
     width: calc(100% - 20px);
     .el-dialog__headerbtn {
       top: 0px;
+    }
+    .network-box {
+      background: url('../../../assets/icons/hexgon.svg') no-repeat center
+        center;
+      background-size: 100% auto;
+    }
+    @media screen and (max-width: 768px) {
+      .chain-item {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
     }
   }
 </style>

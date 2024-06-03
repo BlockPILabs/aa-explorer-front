@@ -83,7 +83,4 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-  .wallet-info {
-  }
-</style>
+<style lang="scss" scoped></style>

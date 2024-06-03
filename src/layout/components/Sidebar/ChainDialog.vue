@@ -82,7 +82,7 @@
                 class="w-32px! h-32px!"
               ></svg-icon>
             </div>
-            <div>
+            <div class="break-all">
               <strong class="text-16px mb-2px">{{ item.chainName }}</strong
               ><br />
               <span class="c-#93959c">{{ item.name }}</span>

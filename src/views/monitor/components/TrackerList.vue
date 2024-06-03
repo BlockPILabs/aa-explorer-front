@@ -191,17 +191,16 @@
 </script>
 
 <template>
-  <my-card noPad>
-    <template #title>
+  <div class="tracker-list bg-#fff rd-12px">
+    <div class="flex-common min-h-69px p-16px gap-16px">
       <span class="fw-700 text-18px">AA Tracker</span>
-    </template>
-    <template #right>
       <el-button type="primary" @click="handleClick">
         <svg-icon iconClass="plus" class="w-16px! h-16px! mr-4px"></svg-icon>
         <span class="fw-600">Add Address</span>
       </el-button>
-    </template>
-    <div class="px-16px" v-loading="loading">
+    </div>
+
+    <div class="px-16px w-100%" v-loading="loading">
       <titan-table
         ref="table"
         :data="list"
@@ -221,7 +220,7 @@
         </template>
         <template #empty>
           <div
-            class="empty absolute top-120px left-50% translate-x--50% text-center c-#60626A"
+            class="empty absolute top-120px lh-150% left-50% translate-x--50% text-center c-#60626A"
           >
             <el-button type="primary" @click="handleClick">
               <svg-icon
@@ -237,15 +236,21 @@
         </template>
       </titan-table>
     </div>
-    <AddAddressDialog
-      v-model:visible="showAdd"
-      @refresh-list="handleRefresh"
-    ></AddAddressDialog>
-  </my-card>
+  </div>
+  <AddAddressDialog
+    v-model:visible="showAdd"
+    @refresh-list="handleRefresh"
+  ></AddAddressDialog>
 </template>
 
 <style lang="scss" scoped>
+  @media screen and (max-width: 992px) {
+    .tracker-list {
+      margin-top: 16px;
+    }
+  }
   .tracker-table.titan-table {
+    width: 100%;
     :deep() {
       .el-table__body {
         border-spacing: 0px 10px;
