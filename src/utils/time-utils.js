@@ -70,7 +70,10 @@ export function formatTime(
     const to = baseFormat.lastIndexOf(range[1]) + 1 || baseFormat.length
     format = baseFormat.substring(from, to)
   }
-  if (!time) return dayjs().format(format)
+  if (!time) {
+    return '- -'
+    // return dayjs().format(format)
+  }
   return timeFormat
     ? dayjs(time, timeFormat).format(format)
     : dayjs(time).format(format)

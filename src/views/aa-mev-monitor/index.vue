@@ -84,10 +84,10 @@
   const tableCol = ref<any>([
     {
       label: `Timestamp(UTC${getOffset()})`,
-      prop: 'time',
+      prop: 'timestamp',
       minWidth: 150,
       render: ({ row }) => {
-        return <span>{formatTime(row.time, 'YYYY/MM/DD HH:mm')}</span>
+        return <span>{formatTime(row.timestamp, 'YYYY/MM/DD HH:mm')}</span>
       }
     },
     {
@@ -242,6 +242,12 @@
       }
     }
   ])
+  function handleSortChange(params) {
+    sortField.value = params.prop
+    sortOrder.value = params.order
+    page.value = 1
+    getList()
+  }
 </script>
 
 <template>
@@ -261,7 +267,7 @@
             <span class="c-#60626A">Attacker Total Profit</span>
             <number-show
               :number="statInfo.attackerTotalProfit"
-              format="$0,0.[000000]"
+              format="$0,0.[000]"
               class="text-24px mt-8px fw-700"
             ></number-show>
           </div>
@@ -326,7 +332,11 @@
           @update:page="handleQuery"
         />
       </div>
-      <titan-table :data="list" :columns="tableCol"></titan-table>
+      <titan-table
+        :data="list"
+        :columns="tableCol"
+        @sort-change="handleSortChange"
+      ></titan-table>
       <div class="flex justify-end px-16px pt-16px">
         <Pagination
           v-model:total="total"

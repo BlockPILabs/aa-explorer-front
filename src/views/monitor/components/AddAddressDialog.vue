@@ -28,7 +28,9 @@
   const filterVal = ref('')
   const addressType = ref('')
   const notFound = ref(false)
-
+  watch(filterVal, () => {
+    notFound.value = false
+  })
   const isInvalid = computed(() => {
     return !isAddress(filterVal.value)
   })
@@ -99,7 +101,8 @@
     </el-input>
     <div class="mt-8px mb-16px">
       <span class="c-#93959c" v-show="addressType">{{ addressType }}</span>
-      <span class="c-#C16666" v-show="notFound"> Address not found. </span>
+      <p class="c-#C16666" v-show="notFound">Address not found.</p>
+      <p class="c-#C16666" v-show="isInvalid">Please input a valid address.</p>
     </div>
     <div class="w-100% h-1px bg-#EDECEC my-16px"></div>
     <el-scrollbar
@@ -131,7 +134,7 @@
     <div class="mt-16px" v-show="!notFound">
       <el-button
         type="primary"
-        :disabled="isInvalid && checking"
+        :disabled="isInvalid || checking"
         @click="handleSubmit"
         >Submit</el-button
       >
