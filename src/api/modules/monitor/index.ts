@@ -3,7 +3,8 @@ import { URL } from '@/api/urls'
 
 export function getOverview(net, params) {
   return http.get(URL.monitor.overview(net), {
-    params
+    params,
+    hideError: true
   })
 }
 

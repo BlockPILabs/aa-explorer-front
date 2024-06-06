@@ -222,13 +222,10 @@
           <div
             class="empty absolute top-120px lh-150% left-50% translate-x--50% text-center c-#60626A"
           >
-            <el-button type="primary" @click="handleClick">
-              <svg-icon
-                iconClass="plus"
-                class="w-16px! h-16px! mr-4px"
-              ></svg-icon>
-              <span class="fw-600">Add Address</span>
-            </el-button>
+            <svg-icon
+              iconClass="monitor-bg"
+              class="w-200px! h108px!"
+            ></svg-icon>
             <p class="mt-16px">
               Add addresses to monitor AA wallets/paymasters/bundlers
             </p>
