@@ -17,7 +17,11 @@ import CopyIt from '@/components/CopyIt/index.vue'
 import TitanTable from '@/components/TitanTable/index.ts'
 
 import ElTableInfiniteScroll from 'el-table-infinite-scroll'
+import { QueryClient, VueQueryPlugin } from '@tanstack/vue-query'
+import { WagmiPlugin } from '@wagmi/vue'
+import { config } from './config.ts'
 
+const queryClient = new QueryClient()
 const app = createApp(App)
 
 setupStore(app)
@@ -28,4 +32,8 @@ app.component('CopyIt', CopyIt)
 app.use(TitanTable)
 app.use(ElTableInfiniteScroll)
 
-app.use(router).mount('#app')
+app
+  .use(router)
+  .use(WagmiPlugin, { config })
+  .use(VueQueryPlugin, { queryClient })
+  .mount('#app')

@@ -69,11 +69,12 @@
     )
     window.open(url, '_blank', 'noopener=yes,noreferrer=yes')
   }
-  const accountDetail = reactive({
+  const initState = {
     factory: '',
     factoryTime: undefined,
     totalAmount: undefined
-  })
+  }
+  const accountDetail = reactive({ ...initState })
   const detailLoading = ref(false)
   async function getDetail(val) {
     try {
@@ -86,6 +87,7 @@
       accountDetail.totalAmount = res.totalAmount
     } catch (error) {
       console.error(error)
+      Object.assign(accountDetail, initState)
     } finally {
       detailLoading.value = false
     }

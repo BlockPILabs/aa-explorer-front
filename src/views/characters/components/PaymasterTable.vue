@@ -30,7 +30,7 @@
     {
       label: 'Address',
       prop: 'paymaster',
-      minWidth: 120,
+      minWidth: 130,
       render: ({ row }) => {
         const dom = row.paymasterLabel ? (
           <div class='inline-flex mt-4px px-4px py-2px rd-4px bg-#D8DFFF c-#60626A'>
@@ -59,7 +59,7 @@
       prop: 'userOpsNum',
       align: 'right',
       sortable: 'custom',
-      minWidth: 90,
+      minWidth: 94,
       render: ({ row }) => {
         return <number-show number={row.userOpsNum} />
       }
@@ -79,7 +79,7 @@
       prop: 'gasSponsored',
       align: 'right',
       sortable: 'custom',
-      minWidth: 120,
+      minWidth: 134,
       render: ({ row }) => {
         return (
           <div>
@@ -97,7 +97,7 @@
             <div>
               <number-show
                 number={row.gasSponsoredUsd}
-                format='{&asymp;$}0,0.[000000]'
+                format='{&asymp;$}0,0.[000]'
                 class='c-#93959C'
               />
             </div>

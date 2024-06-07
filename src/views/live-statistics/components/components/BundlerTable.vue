@@ -25,6 +25,7 @@
     {
       label: 'Address',
       prop: 'address',
+      minWidth: 130,
       render: ({ row }) => {
         return (
           <CopyMe
@@ -42,6 +43,7 @@
       label: 'Bundles',
       prop: 'bundles',
       align: 'right',
+      minWidth: 80,
       render: ({ row }) => {
         return <number-show number={row.bundles} />
       }
@@ -50,6 +52,7 @@
       label: '24H Success%',
       prop: 'success24H',
       align: 'right',
+      minWidth: 116,
       render: ({ row }) => {
         return <number-show number={row.success24H} format='0.[00]%' />
       }
@@ -57,6 +60,7 @@
     {
       label: 'Profits(24H)',
       align: 'right',
+      minWidth: 110,
       render: ({ row }) => {
         return (
           <div>
@@ -74,7 +78,7 @@
             <div>
               <number-show
                 number={row.feeEarnedUsd24H}
-                format='{&asymp;$}0,0.[000000]'
+                format='{&asymp;$}0,0.[000]'
                 class='c-#93959C'
               />
             </div>

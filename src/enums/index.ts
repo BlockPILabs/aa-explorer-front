@@ -45,3 +45,12 @@ export const COLOR_LIST = [
   '#89ADE4',
   '#89E4B8'
 ]
+
+export const MEVTypeMap = {
+  'front run': {
+    label: 'Frontrun',
+    color: '#5D55F0',
+    icon: 'frontrun',
+    bg: '#F0F5FF'
+  }
+}

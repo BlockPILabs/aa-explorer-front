@@ -132,7 +132,7 @@
             <number-show
               class="pure-text"
               :number="statInfo.accumulativeGasFeeUsd"
-              format="{$}0,0.[00]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>
@@ -151,7 +151,7 @@
             <number-show
               class="pure-text"
               :number="statInfo.paymasterGasPaidUsd"
-              format="{$}0,0.[00]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>
@@ -170,7 +170,7 @@
             <number-show
               class="pure-text"
               :number="statInfo.bundlerGasProfitUsd"
-              format="{$}0,0.[00]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>

@@ -22,5 +22,9 @@ export const SORT_FIELD_MAP = {
     accountNum: 1,
     accountNumD1: 2,
     dominance: 3
+  },
+  blockMevList: {
+    bundlerLoss: 1,
+    mevProfits: 2
   }
 }

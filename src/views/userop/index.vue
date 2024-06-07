@@ -159,7 +159,7 @@
             <number-show
               class="pure-text block"
               :number="useropDetail.feeUsd"
-              format="{($}0,0.[000000]{)}"
+              format="{($}0,0.[000]{)}"
             ></number-show>
           </div>
           <div class="label mt-16px">
@@ -183,7 +183,7 @@
             <number-show
               class="pure-text block"
               :number="useropDetail.txValueUsd"
-              format="{($}0,0.[000000]{)}"
+              format="{($}0,0.[000]{)}"
             ></number-show>
           </div>
         </div>
@@ -302,7 +302,7 @@
             <number-show
               class="pure-text block"
               :number="useropDetail.feeUsd"
-              format="{($}0,0.[000000]{)}"
+              format="{($}0,0.[000]{)}"
             ></number-show>
           </div>
         </div>

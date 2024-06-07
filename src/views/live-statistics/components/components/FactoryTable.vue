@@ -21,6 +21,7 @@
     {
       label: 'Address',
       prop: 'address',
+      minWidth: 130,
       render: ({ row }) => {
         return (
           <CopyMe
@@ -38,6 +39,7 @@
       label: 'Active Account',
       prop: 'activeAccount',
       align: 'right',
+      minWidth: 120,
       render: ({ row }) => {
         return (
           <div>
@@ -50,6 +52,7 @@
       label: 'Total Account',
       prop: 'totalAccount',
       align: 'right',
+      minWidth: 110,
       render: ({ row }) => {
         return <number-show number={row.totalAccount} />
       }

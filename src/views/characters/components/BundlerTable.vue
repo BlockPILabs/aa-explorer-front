@@ -30,7 +30,7 @@
     {
       label: 'Address',
       prop: 'bundler',
-      minWidth: 120,
+      minWidth: 130,
       render: ({ row }) => {
         const dom = row.bundlerLabel ? (
           <div class='inline-flex mt-4px px-4px py-2px rd-4px bg-#D8DFFF c-#60626A'>
@@ -58,6 +58,7 @@
       label: 'Bundles',
       prop: 'bundlesNum',
       sortable: 'custom',
+      minWidth: 110,
       render: ({ row }) => {
         return (
           <div>
@@ -76,7 +77,7 @@
       prop: 'feeEarnedD1',
       align: 'right',
       sortable: 'custom',
-      minWidth: 140,
+      minWidth: 134,
       render: ({ row }) => {
         return (
           <div>
@@ -94,7 +95,7 @@
             <div>
               <number-show
                 number={row.feeEarnedUsdD1}
-                format='{&asymp;$}0,0.[000000]'
+                format='{&asymp;$}0,0.[000]'
                 class='c-#93959C'
               />
             </div>

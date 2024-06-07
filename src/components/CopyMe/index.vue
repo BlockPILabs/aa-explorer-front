@@ -14,6 +14,10 @@
     routeInfo: {
       type: [Object, String],
       default: ''
+    },
+    copyIcon: {
+      type: String,
+      default: 'copy'
     }
   })
 </script>
@@ -30,7 +34,7 @@
         {{ formatHash(hash) }}</router-link
       >
       <span v-else>{{ formatHash(hash) }}</span>
-      <copy-it :words="hash" class="ml-4px"></copy-it>
+      <copy-it :words="hash" :copyIcon="copyIcon" class="ml-4px"></copy-it>
     </span>
   </el-tooltip>
 </template>

@@ -12,7 +12,8 @@
   const TAB_STORAGE_KEY = 'choosing-bundler-tab'
   const chainStore = useChainStore()
   const { choosingChainObj } = chainStore
-  const { choosingChain, choosingChainLogo } = storeToRefs(chainStore)
+  const { choosingChain, choosingChainLogo, choosingCoinLogo } =
+    storeToRefs(chainStore)
 
   const blockNumber: any = useRouteParams('blockNumber')
   const tabs = [
@@ -72,6 +73,7 @@
         <component
           :is="currCom"
           :choosingChain="choosingChain"
+          :coinIcon="choosingCoinLogo"
           :blockNumber="blockNumber"
         ></component>
       </KeepAlive>

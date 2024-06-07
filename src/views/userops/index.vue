@@ -272,7 +272,7 @@
           class="c-#60626a"
           :number="total"
           format="0,0"
-          suffix="UserOp(s) found"
+          suffix=" UserOp(s) found"
         ></number-show>
       </template>
       <template #right>

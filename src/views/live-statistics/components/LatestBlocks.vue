@@ -101,15 +101,21 @@
           <th class="userop-it min-w-100px">
             <span>UserOps</span>
           </th>
-          <!-- <th class="mev-it min-w-144px">
-              <span>MEV</span>
-            </th> -->
+          <th class="mev-it min-w-100px">
+            <span>MEV</span>
+          </th>
           <th class="profit-it min-w-120px text-right!">
             <span>Bundler Profits</span>
           </th>
         </template>
         <template
-          #default="{ number, useropCount, bundlerProfit, bundlerProfitUsd }"
+          #default="{
+            number,
+            useropCount,
+            bundlerProfit,
+            bundlerProfitUsd,
+            mevCount
+          }"
         >
           <td class="block-it c-#30754B">
             <RouterLink
@@ -120,9 +126,9 @@
           <td class="userop-it">
             <number-show :number="useropCount" />
           </td>
-          <!-- <div class="mev-it min-w-144px">
-              <span>{{ mev }}</span>
-            </div> -->
+          <td class="mev-it min-w-100px">
+            <span>{{ mevCount }}</span>
+          </td>
           <td class="profit-it text-right">
             <div>
               <div class="mb-4px">
@@ -139,7 +145,7 @@
               <div>
                 <number-show
                   :number="bundlerProfitUsd"
-                  format="{&asymp;$}0,0.[000000]"
+                  format="{&asymp;$}0,0.[000]"
                   class="c-#93959C"
                 />
               </div>

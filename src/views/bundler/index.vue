@@ -71,7 +71,7 @@
     )
     window.open(url, '_blank', 'noopener=yes,noreferrer=yes')
   }
-  const bundlerDetail = reactive({
+  const initState = {
     feeEarnedUsdD1: 0,
     feeEarnedUsd: 0,
     successRateD1: 0,
@@ -79,8 +79,10 @@
     bundleRate: 0,
     rank: 0,
     totalBundlers: 0,
-    label: []
-  })
+    label: [],
+    accountBalance: 0
+  }
+  const bundlerDetail = reactive({ ...initState })
   const detailLoading = ref(false)
   async function getDetail(val) {
     try {
@@ -94,8 +96,10 @@
       bundlerDetail.rank = res.rank
       bundlerDetail.totalBundlers = res.totalBundlers
       bundlerDetail.label = res.label || []
+      bundlerDetail.accountBalance = res.accountBalance
     } catch (error) {
       console.error(error)
+      Object.assign(bundlerDetail, initState)
     } finally {
       detailLoading.value = false
     }
@@ -160,7 +164,7 @@
           <div class="value">
             <number-show
               :number="bundlerDetail.feeEarnedUsdD1"
-              format="{$}0,0.[000000]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>
@@ -171,7 +175,7 @@
           <div class="value">
             <number-show
               :number="bundlerDetail.feeEarnedUsd"
-              format="{$}0,0.[000000]"
+              format="{$}0,0.[000]"
             ></number-show>
           </div>
         </div>
@@ -244,7 +248,7 @@
           </div>
           <div class="value">
             <number-show
-              :number="214.56"
+              :number="bundlerDetail.accountBalance"
               format="{$}0,0.[000000]"
             ></number-show>
           </div>
