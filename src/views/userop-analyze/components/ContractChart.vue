@@ -105,7 +105,7 @@
       <div class="flex-1 h-350px min-w-240px">
         <v-chart :option="option" :autoresize="true" />
       </div>
-      <div class="flex-shrink-0 w-214px">
+      <div class="flex-shrink-0 w-300px">
         <div
           v-for="(item, index) in source"
           class="text-16px flex items-center py-8px mb-8px"

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import SearchHash from '@/components/SearchHash/index.vue'
   import TypeChart from './components/TypeChart.vue'
-  import HotTokenChart from './components/HotTokenChart.vue'
+  // import HotTokenChart from './components/HotTokenChart.vue'
   import ContractChart from './components/ContractChart.vue'
   defineOptions({
     name: 'UseropAnalyze'
@@ -24,10 +24,10 @@
     </div>
     <TypeChart></TypeChart>
     <el-row :gutter="16">
-      <el-col :md="12">
+      <!-- <el-col :md="12">
         <HotTokenChart></HotTokenChart>
-      </el-col>
-      <el-col :md="12">
+      </el-col> -->
+      <el-col :md="24">
         <ContractChart></ContractChart>
       </el-col>
     </el-row>

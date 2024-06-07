@@ -39,7 +39,7 @@
         name: 'UserOp type',
         type: 'pie',
         startAngle: 225,
-        radius: ['40%', '70%'],
+        radius: ['50%', '80%'],
         center: ['50%', '50%'],
         data: source.value,
         label: {
@@ -84,6 +84,9 @@
       <span class="fw-700 text-18px">UserOp Type</span>
     </template>
     <div class="flex justify-between flex-wrap">
+      <div class="flex-1 h-350px self-center min-w-300px">
+        <v-chart :option="option" :autoresize="true" />
+      </div>
       <div class="flex-shrink-0 w-300px">
         <div
           v-for="(item, index) in source"
@@ -100,9 +103,6 @@
             class="fw-600 ml-auto"
           ></number-show>
         </div>
-      </div>
-      <div class="flex-1 h-280px self-center min-w-300px">
-        <v-chart :option="option" :autoresize="true" />
       </div>
     </div>
   </my-card>
