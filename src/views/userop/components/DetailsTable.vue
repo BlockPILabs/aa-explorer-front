@@ -45,7 +45,7 @@
     ]
     let midList = []
     if (showMore.value) {
-      const arr = detail.callData.map((item, index) => {
+      const arr = (detail.callData || []).map((item, index) => {
         return [
           {
             name: '',

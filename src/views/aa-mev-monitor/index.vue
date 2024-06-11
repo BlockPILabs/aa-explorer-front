@@ -91,18 +91,17 @@
       }
     },
     {
-      label: 'UserOp Hash',
-      prop: 'userOpHash',
+      label: 'Txn Hash',
+      prop: 'txHash',
       minWidth: 150,
       render: ({ row }) => {
         return (
           <CopyMe
-            hash={row.userOpHash}
+            hash={row.txHash}
             class='c-#30754B'
             routeInfo={{
-              name: 'UseropInfo',
-              params: { userop: row.userOpHash },
-              query: { tx: row.txHash }
+              name: 'TxInfo',
+              params: { tx: row.txHash }
             }}
           />
         )
