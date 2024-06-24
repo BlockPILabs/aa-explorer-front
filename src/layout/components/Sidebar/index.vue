@@ -66,19 +66,34 @@
       <LeftMenu :menu-list="permissionStore.routes" base-path="" />
 
       <div class="contact-us mt-auto pt-24px">
-        <div
-          v-if="opened"
-          class="grant-info flex items-center justify-between mb-24px"
-        >
-          <div>
-            <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+        <div v-if="opened">
+          <div class="grant-title w-100% h-1px bg-#F5F5F5 relative mb-22px">
+            <span
+              class="c-#60626A text-12px absolute inline-block px-10px bg-#fff left-50% top-50% translate-x--50% translate-y--50%"
+              >Grant from</span
+            >
           </div>
-          <div class="flex items-center gap-4px">
-            <span class="c-#60626A text-12px">Grant from</span>
-            <svg-icon icon-class="esp-logo" class="w-66px! h-29px!"></svg-icon>
-          </div>
-          <div class="revert-wheat">
-            <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+          <div class="grant-info flex items-center justify-between mb-24px">
+            <div>
+              <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+            </div>
+            <div class="flex items-center gap-13px">
+              <svg-icon
+                icon-class="ethereum_grants"
+                class="w-52px! h-45px!"
+              ></svg-icon>
+              <svg-icon
+                icon-class="taiko_grants"
+                class="w-42px! h-45px!"
+              ></svg-icon>
+              <svg-icon
+                icon-class="op_grants"
+                class="w-52px! h-45px!"
+              ></svg-icon>
+            </div>
+            <div class="revert-wheat">
+              <svg-icon icon-class="wheat" class="w-26px! h-46px!"></svg-icon>
+            </div>
           </div>
         </div>
         <a
@@ -138,7 +153,7 @@
     }
   }
   .contact-us {
-    border-top: 1px solid #f6f7f2;
+    //    border-top: 1px solid #f6f7f2;
   }
   .bug-icon {
     width: 16px;
