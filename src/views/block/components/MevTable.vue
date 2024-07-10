@@ -59,10 +59,10 @@
   const tableCol = ref<any>([
     {
       label: `Timestamp(UTC${getOffset()})`,
-      prop: 'time',
+      prop: 'timestamp',
       minWidth: 150,
       render: ({ row }) => {
-        return <span>{formatTime(row.time, 'YYYY/MM/DD HH:mm')}</span>
+        return <span>{formatTime(row.timestamp, 'YYYY/MM/DD HH:mm')}</span>
       }
     },
     {
