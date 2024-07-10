@@ -134,3 +134,15 @@ export function getMevTransaction(net, params) {
 export function getMevInfo(net) {
   return http.get(URL.stat.mevInfo(net))
 }
+
+export function getHotToken(net) {
+  return http.get(URL.stat.hotAA(net))
+}
+
+export function getUserTransfers(net, params) {
+  return http.get(URL.stat.aaTransfers(net), { params })
+}
+
+export function getUserBalance(net, params) {
+  return http.get(URL.stat.aaBalance(net), { params })
+}

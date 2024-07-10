@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     AccountChain: typeof import('./../components/AccountChain/index.vue')['default']
     BackTo: typeof import('./../components/BackTo/index.vue')['default']
     Column: typeof import('./../components/TitanTable/src/Column.vue')['default']
+    CommonBalanceInfo: typeof import('./../components/CommonBalanceInfo/index.vue')['default']
+    CommonTransferTable: typeof import('./../components/CommonTransferTable/index.vue')['default']
     CommonTxTable: typeof import('./../components/CommonTxTable/index.vue')['default']
     CopyIt: typeof import('./../components/CopyIt/index.vue')['default']
     CopyMe: typeof import('./../components/CopyMe/index.vue')['default']

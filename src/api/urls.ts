@@ -89,6 +89,15 @@ export const URL = {
     },
     mevInfo: (net) => {
       return `/network/${net}/monitor/mevInfo`
+    },
+    hotAA: (net) => {
+      return `/network/${net}/hotAA`
+    },
+    aaTransfers: (net) => {
+      return `/network/${net}/aa/transfers`
+    },
+    aaBalance: (net) => {
+      return `/network/${net}/aa/balance`
     }
   },
   whale: {
