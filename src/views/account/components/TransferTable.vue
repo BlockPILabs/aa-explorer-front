@@ -1,12 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import CommonTransferTable from '@/components/CommonTransferTable/index.vue'
+  defineProps({
+    choosingChain: {
+      type: String,
+      default: ''
+    },
+    account: {
+      type: [Number, String],
+      default: 0
+    }
+  })
+</script>
 
 <template>
-  <div
-    class="absolute top-0 left-50% translate-x--50% flex flex-col items-center justify-center h-full"
-  >
-    <svg-icon iconClass="coming_soon" class="w-64px! h64px! mb-24px"></svg-icon>
-    <span>Coming soon</span>
-  </div>
+  <CommonTransferTable
+    :choosingChain="choosingChain"
+    :address="account"
+  ></CommonTransferTable>
 </template>
 
 <style lang="scss" scoped></style>

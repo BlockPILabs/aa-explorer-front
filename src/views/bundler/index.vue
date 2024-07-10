@@ -20,6 +20,7 @@
     chainLoading,
     accountChains,
     currChainLogo,
+    currCoinLogo,
     setCurrChain
   } = useAccountChain(bundler.value)
   function handleCommand(command) {
@@ -268,6 +269,7 @@
               :is="currCom"
               :choosingChain="currChain"
               :bundler="bundler"
+              :coinIcon="currCoinLogo"
             ></component>
           </KeepAlive>
         </my-card>
