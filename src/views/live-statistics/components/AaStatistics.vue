@@ -126,7 +126,7 @@
             <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.accumulativeGasFee"
-              format="0.[00]a"
+              format="0.[000000]a"
               class="main-value"
             ></number-show>
             <number-show
@@ -145,7 +145,7 @@
             <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.paymasterGasPaid"
-              format="0.[00]a"
+              format="0.[000000]a"
               class="main-value"
             ></number-show>
             <number-show
@@ -164,7 +164,7 @@
             <svg-icon :iconClass="choosingCoinLogo" class="gas-icon"></svg-icon>
             <number-show
               :number="statInfo.bundlerGasProfit"
-              format="0.[00]a"
+              format="0.[000000]a"
               class="main-value"
             ></number-show>
             <number-show
