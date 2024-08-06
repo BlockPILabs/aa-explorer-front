@@ -82,8 +82,20 @@
             : row.addressType === 'Paymaster'
             ? row.sponsoredGas24H
             : 0
-        if (row.addressType === 'Bundler' && row.addressType === 'Paymaster') {
-          return <span></span>
+        if (row.addressType !== 'Bundler' && row.addressType !== 'Paymaster') {
+          return (
+            <div class='flex flex-col gap-8px items-start fw-600'>
+              <span class='c-#93959C'>24H {label}</span>
+              <div>
+                <number-show
+                  number={row.totalUserOps}
+                  format='0,0'
+                  suffix={row.totalUserOps > 1 ? ' UserOps' : ' UserOp'}
+                  class='c-#30754B'
+                ></number-show>
+              </div>
+            </div>
+          )
         } else {
           return (
             <div class='flex flex-col gap-8px items-start fw-600'>
