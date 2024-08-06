@@ -166,7 +166,7 @@
               }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['accumulativeGasFee'],
-                '0.[00]a'
+                '0.[000000]a'
               )}</span>
               <span style="color: #60626A;font-weight: 500;">$${pureFormatNumber(
                 params[0].value['accumulativeGasFeeUsd'],
@@ -212,7 +212,7 @@
               }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['paymasterGasPaid'],
-                '0.[00]a'
+                '0.[000000]a'
               )}</span>
               <span style="color: #60626A;font-weight: 500;">$${pureFormatNumber(
                 params[0].value['paymasterGasPaidUsd'],
@@ -260,7 +260,7 @@
               }" />
               <span style="margin: 0 2px;">${pureFormatNumber(
                 params[0].value['bundlerGasProfit'],
-                '0.[00]a'
+                '0.[000000]a'
               )}</span>
               <span style="color: #60626A;font-weight: 500;">$${pureFormatNumber(
                 params[0].value['bundlerGasProfitUsd'],
