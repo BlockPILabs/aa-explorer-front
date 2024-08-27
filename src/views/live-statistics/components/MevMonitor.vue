@@ -168,8 +168,8 @@
             <CopyMe
               :hash="listItem.attacker"
               :routeInfo="{
-                name: 'AccountInfo',
-                params: { account: listItem.attacker }
+                name: 'BundlerInfo',
+                params: { bundler: listItem.attacker }
               }"
             />
           </td>

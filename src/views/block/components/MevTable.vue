@@ -141,8 +141,8 @@
             hash={row.attacker}
             class='c-#30754B'
             routeInfo={{
-              name: 'AccountInfo',
-              params: { account: row.attacker }
+              name: 'BundlerInfo',
+              params: { bundler: row.attacker }
             }}
           />
         )

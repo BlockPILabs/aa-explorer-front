@@ -11,7 +11,7 @@
   const { sidebar } = storeToRefs(appStore)
   const { opened } = toRefs(sidebar.value)
   const contacts = reactive([
-    { icon: 'twitter', url: 'https://twitter.com/RealBlockPI' },
+    { icon: 'x', url: 'https://x.com/RealBlockPI' },
     { icon: 'telegram', url: 'https://t.me/blockpidaily' },
     { icon: 'discord', url: 'https://discord.gg/xTvGVrGVZv' },
     { icon: 'medium', url: 'https://medium.com/@blockpi' }
