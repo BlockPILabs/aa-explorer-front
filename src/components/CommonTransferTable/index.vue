@@ -1,9 +1,7 @@
 <script setup lang="tsx">
   import { useRouteQuery } from '@vueuse/router'
   import CopyMe from '@/components/CopyMe/index.vue'
-  import { StatusMap } from '@/enums'
   import { getUserTransfers } from '@/api/modules/stat'
-  import TargetsWrapper from '@/components/TargetsWrapper/index.vue'
   import Pagination from '@/components/Pagination/index.vue'
   import { getOffset, formatTime } from '@/utils/time-utils'
   import { useAbortRequest } from '@/hooks/useAbortRequest'
@@ -146,12 +144,11 @@
         return (
           <div>
             <svg-icon
-              iconClass={row.tokenImage}
+              iconClass={row?.tokenImage || 'https://static.blockpi.io/coins-logo/eth.svg'}
               class='w-16px! h-16px! mr-4px'
             ></svg-icon>
             <span>
-              {props.choosingChain}
-              <span class='c-#93959C'> ({row.tokenSymbol})</span>
+              <span class='c-#93959C'>{row.tokenSymbol}</span>
             </span>
           </div>
         )
