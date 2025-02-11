@@ -125,7 +125,7 @@
           </a>
         </div>
         <div class="copyright text-12px c-#B8BAC1" v-if="opened">
-          <span>&copy;2024 BlockPI.All rights reserved.</span>
+          <span>&copy;2025 BlockPI.All rights reserved.</span>
         </div>
       </div>
     </el-scrollbar>
